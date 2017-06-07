@@ -38,11 +38,8 @@ public class Levels {
 	private static Label labelInit(String style){
 		Label tempLabel = new Label();
 		tempLabel.getStyleClass().add(style);
-		tempLabel.setText("hi");
-		
-		/*
-		 * Add Label height and width preferences if necessary
-		 */
+		tempLabel.setMinWidth(85);
+		tempLabel.setMinHeight(44);
 		
 		return tempLabel;
 	}
