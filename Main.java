@@ -14,12 +14,13 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			EnvironmentGUIPane pane = new EnvironmentGUIPane();
-			Scene scene = new Scene(pane,1500,650);
+			Scene scene = new Scene(pane,649,650);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			scene.getStylesheets().add("application/application.css");
 			pane.startLevel(currentLevel);
 			primaryStage.setScene(scene);
 			primaryStage.show();
+			primaryStage.setResizable(false);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

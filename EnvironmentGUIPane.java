@@ -7,6 +7,7 @@ public class EnvironmentGUIPane extends GridPane{
 	Label[][] labels;
 	int rows;
 	int columns;
+	Player player = new Player(1,0);
 	
 	public void startLevel(int levelNum){
 		labels = Levels.createLevel(levelNum);
@@ -18,6 +19,9 @@ public class EnvironmentGUIPane extends GridPane{
 				add(labels[c][r], r, c);  // DONT FORGET TO ADD LABEL TO GRIDPANE :)
 			}
 		}
+		
+		labels[0][13] = Levels.labelInit("player");
+		add(labels[0][13], 0, 13);
 	}
 	
 }

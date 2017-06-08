@@ -35,10 +35,10 @@ public class Levels {
 		
 	}
 	
-	private static Label labelInit(String style){
+	public static Label labelInit(String style){
 		Label tempLabel = new Label();
 		tempLabel.getStyleClass().add(style);
-		tempLabel.setMinWidth(85);
+		tempLabel.setMinWidth(44);
 		tempLabel.setMinHeight(44);
 		
 		return tempLabel;
