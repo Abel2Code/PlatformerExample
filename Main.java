@@ -1,26 +1,29 @@
 package application;
 	
+import java.util.Timer;
+import java.util.TimerTask;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 
 public class Main extends Application {
-	private static int currentLevel = 1;
+	public static int currentLevel = 0;
+	public static Scene scene = new Scene(MainMenu.createMainMenu(),649,650);
 	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			EnvironmentGUIPane pane = new EnvironmentGUIPane();
-			Scene scene = new Scene(pane,649,650);
+			
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			scene.getStylesheets().add("application/application.css");
-			pane.startLevel(currentLevel);
+//			pane.startLevel(currentLevel);
+//			scene.setRoot(MainMenu.createMainMenu());
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			primaryStage.setResizable(false);
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

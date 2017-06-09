@@ -4,10 +4,12 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
 public class EnvironmentGUIPane extends GridPane{
-	Label[][] labels;
-	int rows;
-	int columns;
-	Player player = new Player(1,0);
+	private Label[][] labels;
+	private int rows;
+	private int columns;
+	private Player player = new Player(1,0);
+	
+	
 	
 	public void startLevel(int levelNum){
 		labels = Levels.createLevel(levelNum);

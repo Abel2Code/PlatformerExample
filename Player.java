@@ -1,5 +1,7 @@
 package application;
 
+import javafx.scene.control.Label;
+
 public class Player {
 	Coordinate position;
 	Boolean falling = false;
@@ -18,8 +20,8 @@ public class Player {
 		return position;
 	}
 	
-	public void moveLeft(){
-		
+	public void moveLeft(Label[][] labels){
+//		if(player)
 	}
 	
 	public void moveRight(){
