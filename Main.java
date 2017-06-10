@@ -1,8 +1,5 @@
 package application;
 	
-import java.util.Timer;
-import java.util.TimerTask;
-
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -18,8 +15,6 @@ public class Main extends Application {
 			
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			scene.getStylesheets().add("application/application.css");
-//			pane.startLevel(currentLevel);
-//			scene.setRoot(MainMenu.createMainMenu());
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			primaryStage.setResizable(false);

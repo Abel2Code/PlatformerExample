@@ -1,13 +1,16 @@
 package application;
 
+import javafx.event.EventHandler;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 
 public class EnvironmentGUIPane extends GridPane{
 	private Label[][] labels;
 	private int rows;
 	private int columns;
-	private Player player = new Player(1,0);
+	private Player player = new Player(0,13);
 	
 	
 	
@@ -24,6 +27,17 @@ public class EnvironmentGUIPane extends GridPane{
 		
 		labels[0][13] = Levels.labelInit("player");
 		add(labels[0][13], 0, 13);
+		
+		Main.scene.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>(){
+			@Override
+			public void handle(KeyEvent event) {
+				if(event.getCode() == KeyCode.RIGHT || event.getCode() == KeyCode.D){
+					player.moveRight(labels);
+				} else if(event.getCode() == KeyCode.LEFT || event.getCode() == KeyCode.A){
+					player.moveLeft(labels);
+				}
+			}
+		});
 	}
 	
 }

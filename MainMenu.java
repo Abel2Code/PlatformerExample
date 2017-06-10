@@ -12,7 +12,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
 public class MainMenu {
-
+	private static Timer mainMenuTimer = new Timer();
+		
 	public static GridPane createMainMenu(){
 		GridPane menu = new GridPane();
 		Button level1 = new Button("Level 1");
@@ -42,7 +43,7 @@ public class MainMenu {
 	}
 	
 	private static void chooseLevel(){
-		Timer mainMenuTimer = new Timer();
+		
 		TimerTask startLevel = new TimerTask() {
 			
 			@Override
@@ -53,10 +54,9 @@ public class MainMenu {
 						@Override
 						public void run() {
 							EnvironmentGUIPane pane = new EnvironmentGUIPane();
-							
 							Main.scene.setRoot(pane);
 							pane.startLevel(Main.currentLevel);
-							
+							mainMenuTimer.cancel();
 						}
 						
 					});

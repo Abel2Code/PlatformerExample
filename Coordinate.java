@@ -1,26 +1,28 @@
 package application;
 
 public class Coordinate {
-	double x;
-	double y;
+	int x;
+	int y;
+	int quarter = 0;
 	
-	public Coordinate(double x, double y){
-		
-	}
-	
-	public void setX(double x){
+	public Coordinate(int x, int y){
 		this.x = x;
-	}
-	
-	public double getX(){
-		return x;
-	}
-	
-	public void setY(double y){
 		this.y = y;
 	}
 	
-	public double getY(){
+	public void setX(int x){
+		this.x = x;
+	}
+	
+	public int getX(){
+		return x;
+	}
+	
+	public void setY(int y){
+		this.y = y;
+	}
+	
+	public int getY(){
 		return y;
 	}
 }
