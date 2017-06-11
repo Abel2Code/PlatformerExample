@@ -27,11 +27,15 @@ public class Player {
 	}
 	
 	public void moveRight(Label[][] labels){
-		System.out.println("R");
-		if(position.getX() != 0 && labels[position.getY()][position.getX() + 1].getStyleClass().contains("background")){
-			System.out.println("Right");
+		if(position.getX() != 14 && labels[position.getY()][position.getX() + 1].getStyleClass().contains("background")){
+			labels[position.getY()][position.getX()].getStyleClass().clear();
+			labels[position.getY()][position.getX()].getStyleClass().add("background");
+//			System.out.println(position.getY() + "  " + position.getX());
+//			labels[position.getY()][position.getX() + 1].getStyleClass().clear();
+//			labels[position.getY()][position.getX() + 1].getStyleClass().add("player");
+			position.setX(position.getX() + 1);
 		} else{
-			System.out.println();
+			
 		}
 	}
 
