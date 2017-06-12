@@ -25,8 +25,8 @@ public class EnvironmentGUIPane extends GridPane{
 			}
 		}
 		
-		labels[0][13] = Levels.labelInit("player");
-		add(labels[0][13], 0, 13);
+		labels[13][0] = Levels.labelInit("player");
+		add(labels[13][0], 0, 13);
 		
 		Main.scene.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>(){
 			@Override
@@ -35,6 +35,8 @@ public class EnvironmentGUIPane extends GridPane{
 					player.moveRight(labels);
 				} else if(event.getCode() == KeyCode.LEFT || event.getCode() == KeyCode.A){
 					player.moveLeft(labels);
+				} else if(event.getCode() == KeyCode.UP || event.getCode() == KeyCode.W){
+					player.jump(labels);
 				}
 			}
 		});
