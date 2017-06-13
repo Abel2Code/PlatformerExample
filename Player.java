@@ -49,7 +49,7 @@ public class Player {
 	}
 	
 	public void jump(Label[][] labels){
-		if(labels[position.getY() + 1][position.getX()].getStyleClass().contains("background")){
+		if(labels[position.getY() - 1][position.getX()].getStyleClass().contains("background")){
 			System.out.println("YES");
 			TimerTask startJump = new TimerTask() {
 				
@@ -59,39 +59,49 @@ public class Player {
 					case 0:
 						labels[position.getY()][position.getX()].getStyleClass().clear();
 						labels[position.getY()][position.getX()].getStyleClass().add("playerBottemJump1");
-						labels[position.getY() + 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() + 1][position.getX()].getStyleClass().add("playerTopJump1");
+						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
+						labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump1");
 						counter++;
 						break;
 					case 1:
 						labels[position.getY()][position.getX()].getStyleClass().clear();
 						labels[position.getY()][position.getX()].getStyleClass().add("playerBottemJump2");
-						labels[position.getY() + 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() + 1][position.getX()].getStyleClass().add("playerTopJump2");
+						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
+						labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump2");
 						counter++;
 						break;
 					case 2:
 						labels[position.getY()][position.getX()].getStyleClass().clear();
 						labels[position.getY()][position.getX()].getStyleClass().add("playerBottemJump3");
-						labels[position.getY() + 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() + 1][position.getX()].getStyleClass().add("playerTopJump3");
+						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
+						labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump3");
 						counter++;
 						break;
 					case 3:
 						labels[position.getY()][position.getX()].getStyleClass().clear();
 						labels[position.getY()][position.getX()].getStyleClass().add("playerBottemJump4");
-						labels[position.getY() + 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() + 1][position.getX()].getStyleClass().add("playerTopJump4");
+						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
+						labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump4");
 						counter++;
 						break;
 					case 4:
 						labels[position.getY()][position.getX()].getStyleClass().clear();
 						labels[position.getY()][position.getX()].getStyleClass().add("background");
-						labels[position.getY() + 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() + 1][position.getX()].getStyleClass().add("player");
-						position.setY(position.getY() + 1);
+						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
+						labels[position.getY() - 1][position.getX()].getStyleClass().add("player");
+						position.setY(position.getY() - 1);
 						counter = 0;
-						
+						Platform.runLater(new Runnable(){
+							
+							@Override
+							public void run() {
+								EnvironmentGUIPane pane = new EnvironmentGUIPane();
+								Main.scene.setRoot(pane);
+								pane.startLevel(Main.currentLevel);
+								jumpTimer.cancel();
+							}
+							
+						});
 					}
 				}
 				
@@ -99,8 +109,6 @@ public class Player {
 			};	
 			
 			jumpTimer.schedule(startJump, 0, 100);
-		} else{
-			System.out.println(labels[position.getY() + 1][position.getX()].getStyleClass().contains("background"));
 		}
 	}
 
