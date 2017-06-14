@@ -1,5 +1,5 @@
 .background{
-	-fx-background-color: black;
+	-fx-background-color: blue;
 }
 
 .solid{
@@ -13,49 +13,49 @@
 }
 
 .playerBottemJump1{
-	fx-border-width: 0.0 3.0 10.0 3.0;
+	-fx-border-width: 0.0 3.0 10.0 3.0;
 	-fx-border-style: solid;
 	-fx-background-color: yellow;
 }
 
 .playerTopJump1{
-	fx-border-width: 37.0 3.0 10.0 3.0;
+	-fx-border-width: 37.0 3.0 0.0 3.0;
 	-fx-border-style: solid;
 	-fx-background-color: yellow;
 }
 
 .playerBottemJump2{
-	fx-border-width: 0.0 3.0 20.0 3.0;
+	-fx-border-width: 0.0 3.0 20.0 3.0;
 	-fx-border-style: solid;
 	-fx-background-color: yellow;
 }
 
 .playerTopJump2{
-	fx-border-width: 27.0 3.0 10.0 3.0;
+	-fx-border-width: 27.0 3.0 0.0 3.0;
 	-fx-border-style: solid;
 	-fx-background-color: yellow;
 }
 
 .playerBottemJump3{
-	fx-border-width: 0.0 3.0 30.0 3.0;
+	-fx-border-width: 0.0 3.0 30.0 3.0;
 	-fx-border-style: solid;
 	-fx-background-color: yellow;
 }
 
 .playerTopJump3{
-	fx-border-width: 17.0 3.0 10.0 3.0;
+	-fx-border-width: 17.0 3.0 0.0 3.0;
 	-fx-border-style: solid;
 	-fx-background-color: yellow;
 }
 
 .playerBottemJump4{
-	fx-border-width: 0.0 3.0 40.0 3.0;
+	-fx-border-width: 0.0 3.0 40.0 3.0;
 	-fx-border-style: solid;
 	-fx-background-color: yellow;
 }
 
 .playerTopJump4{
-	fx-border-width: 7.0 3.0 10.0 3.0;
+	-fx-border-width: 7.0 3.0 0.0 3.0;
 	-fx-border-style: solid;
 	-fx-background-color: yellow;
 }

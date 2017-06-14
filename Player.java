@@ -11,7 +11,7 @@ public class Player {
 	Boolean falling = false;
 	int timeFalling = 0;
 	private static Timer jumpTimer = new Timer();
-	private static int counter = 0;
+	private static int counter = -1;
 	
 	public Player(int x, int y){
 		position = new Coordinate(x, y);
@@ -55,49 +55,53 @@ public class Player {
 				
 				@Override
 				public void run() {
+					
 					switch(counter){
+					case -1:
+						position.setY(position.getY() - 1); 
+						counter++;
+						break;
 					case 0:
+						labels[position.getY() + 1][position.getX()].getStyleClass().clear();
+						labels[position.getY() + 1][position.getX()].getStyleClass().add("playerBottemJump1");
 						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("playerBottemJump1");
-						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump1");
+						labels[position.getY()][position.getX()].getStyleClass().add("playerTopJump1");
 						counter++;
 						break;
 					case 1:
+						labels[position.getY() + 1][position.getX()].getStyleClass().clear();
+						labels[position.getY() + 1][position.getX()].getStyleClass().add("playerBottemJump2");
 						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("playerBottemJump2");
-						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump2");
+						labels[position.getY()][position.getX()].getStyleClass().add("playerTopJump2");
 						counter++;
 						break;
 					case 2:
+						labels[position.getY() + 1][position.getX()].getStyleClass().clear();
+						labels[position.getY() + 1][position.getX()].getStyleClass().add("playerBottemJump3");
 						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("playerBottemJump3");
-						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump3");
+						labels[position.getY()][position.getX()].getStyleClass().add("playerTopJump3");
 						counter++;
 						break;
 					case 3:
+						labels[position.getY() + 1][position.getX()].getStyleClass().clear();
+						labels[position.getY() + 1][position.getX()].getStyleClass().add("playerBottemJump4");
 						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("playerBottemJump4");
-						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump4");
+						labels[position.getY()][position.getX()].getStyleClass().add("playerTopJump4");
 						counter++;
 						break;
 					case 4:
+						labels[position.getY() + 1][position.getX()].getStyleClass().clear();
+						labels[position.getY() + 1][position.getX()].getStyleClass().add("background");
 						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("background");
-						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() - 1][position.getX()].getStyleClass().add("player");
-						position.setY(position.getY() - 1);
-						counter = 0;
+						labels[position.getY()][position.getX()].getStyleClass().add("player");
+						counter = -1;
+						// Call fall method or execute fall through case 5-8
+						
+						
 						Platform.runLater(new Runnable(){
 							
 							@Override
 							public void run() {
-								EnvironmentGUIPane pane = new EnvironmentGUIPane();
-								Main.scene.setRoot(pane);
-								pane.startLevel(Main.currentLevel);
 								jumpTimer.cancel();
 							}
 							
@@ -112,7 +116,7 @@ public class Player {
 		}
 	}
 
-	public void isFalling(){ //If falling, will execute gravity
+	public void fall(){ //If falling, will execute gravity
 		
 	}
 }
