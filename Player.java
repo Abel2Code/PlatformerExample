@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 public class Player {
 	Coordinate position;
 	Boolean falling = false;
+	Boolean jumping = false;
 	int timeFalling = 0;
 	private static Timer jumpTimer = new Timer();
 	private static int counter = -1;
@@ -27,6 +28,14 @@ public class Player {
 	}
 	
 	public void moveLeft(Label[][] labels){
+		if(position.getX() != 0 && jumping == true && labels[position.getY() - 1][position.getX() - 1].getStyleClass().contains("background")){
+			return;
+		}
+		
+		if(jumping == true){
+			
+		}
+		
 		if(position.getX() != 0 && labels[position.getY()][position.getX() - 1].getStyleClass().contains("background")){
 			labels[position.getY()][position.getX()].getStyleClass().clear();
 			labels[position.getY()][position.getX()].getStyleClass().add("background");
@@ -38,6 +47,9 @@ public class Player {
 	}
 	
 	public void moveRight(Label[][] labels){
+		if(position.getX() != 14 && jumping == true && labels[position.getY()][position.getX() + 1].getStyleClass().contains("background")){
+			return;
+		}
 		if(position.getX() != 14 && labels[position.getY()][position.getX() + 1].getStyleClass().contains("background")){
 			labels[position.getY()][position.getX()].getStyleClass().clear();
 			labels[position.getY()][position.getX()].getStyleClass().add("background");
@@ -49,8 +61,9 @@ public class Player {
 	}
 	
 	public void jump(Label[][] labels){
+		System.out.println("Test");
 		if(labels[position.getY() - 1][position.getX()].getStyleClass().contains("background")){
-			System.out.println("YES");
+			jumping = true;
 			TimerTask startJump = new TimerTask() {
 				
 				@Override
@@ -58,43 +71,56 @@ public class Player {
 					
 					switch(counter){
 					case -1:
-						position.setY(position.getY() - 1); 
 						counter++;
 						break;
 					case 0:
-						labels[position.getY() + 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() + 1][position.getX()].getStyleClass().add("playerBottemJump1");
 						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("playerTopJump1");
+						labels[position.getY()][position.getX()].getStyleClass().add("playerBottemJump1");
+						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
+						labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump1");
 						counter++;
 						break;
 					case 1:
-						labels[position.getY() + 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() + 1][position.getX()].getStyleClass().add("playerBottemJump2");
 						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("playerTopJump2");
+						labels[position.getY()][position.getX()].getStyleClass().add("playerBottemJump2");
+						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
+						labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump2");
 						counter++;
 						break;
 					case 2:
-						labels[position.getY() + 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() + 1][position.getX()].getStyleClass().add("playerBottemJump3");
 						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("playerTopJump3");
+						labels[position.getY()][position.getX()].getStyleClass().add("playerBottemJump3");
+						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
+						labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump3");
 						counter++;
 						break;
 					case 3:
-						labels[position.getY() + 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() + 1][position.getX()].getStyleClass().add("playerBottemJump4");
 						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("playerTopJump4");
+						labels[position.getY()][position.getX()].getStyleClass().add("playerBottemJump4");
+						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
+						labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump4");
 						counter++;
 						break;
 					case 4:
-						labels[position.getY() + 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() + 1][position.getX()].getStyleClass().add("background");
 						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("player");
+						labels[position.getY()][position.getX()].getStyleClass().add("background");
+						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
+						labels[position.getY() - 1][position.getX()].getStyleClass().add("player");
+						position.setY(position.getY() - 1);
+						jumping = false;
+						falling = true;
+						counter++;
+//					case 5:
+//						labels[position.getY()][position.getX()].getStyleClass().clear();
+//						labels[position.getY()][position.getX()].getStyleClass().add("playerBottemJump4");
+//						labels[position.getY() + 1][position.getX()].getStyleClass().clear();
+//						labels[position.getY() + 1][position.getX()].getStyleClass().add("playerTopJump4");
+//						counter++;
+//						break;
+					case 5:
+					
 						counter = -1;
+						EnvironmentGUIPane.condition = false;
 						// Call fall method or execute fall through case 5-8
 						
 						
@@ -103,6 +129,8 @@ public class Player {
 							@Override
 							public void run() {
 								jumpTimer.cancel();
+								jumpTimer = new Timer();
+								falling = false;
 							}
 							
 						});
@@ -112,7 +140,7 @@ public class Player {
 				
 			};	
 			
-			jumpTimer.schedule(startJump, 0, 100);
+			jumpTimer.schedule(startJump, 0, 50);
 		}
 	}
 

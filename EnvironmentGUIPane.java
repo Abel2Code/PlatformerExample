@@ -11,6 +11,7 @@ public class EnvironmentGUIPane extends GridPane{
 	private int rows;
 	private int columns;
 	private Player player = new Player(0,13);
+	public static boolean condition = false;
 	
 	
 	
@@ -35,7 +36,8 @@ public class EnvironmentGUIPane extends GridPane{
 					player.moveRight(labels);
 				} else if(event.getCode() == KeyCode.LEFT || event.getCode() == KeyCode.A){
 					player.moveLeft(labels);
-				} else if(event.getCode() == KeyCode.UP || event.getCode() == KeyCode.W){
+				} else if((event.getCode() == KeyCode.UP || event.getCode() == KeyCode.W) && condition == false){
+					condition = true;
 					player.jump(labels);
 				}
 			}
