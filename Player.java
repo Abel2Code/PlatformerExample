@@ -28,14 +28,9 @@ public class Player {
 	}
 	
 	public void moveLeft(Label[][] labels){
-		if(position.getX() != 0 && jumping == true && labels[position.getY() - 1][position.getX() - 1].getStyleClass().contains("background")){
+		if(position.getX() != 0 && jumping == true && labels[position.getY() - 1][position.getX() - 1].getStyleClass().contains("solid")){
 			return;
 		}
-		
-		if(jumping == true){
-			
-		}
-		
 		if(position.getX() != 0 && labels[position.getY()][position.getX() - 1].getStyleClass().contains("background")){
 			labels[position.getY()][position.getX()].getStyleClass().clear();
 			labels[position.getY()][position.getX()].getStyleClass().add("background");
@@ -44,12 +39,19 @@ public class Player {
 			labels[position.getY()][position.getX() - 1].getStyleClass().add("player");
 			position.setX(position.getX() - 1);
 		}
+		
+		if(jumping == true){
+			labels[position.getY() - 1][position.getX() + 1].getStyleClass().clear();
+			labels[position.getY() - 1][position.getX() + 1].getStyleClass().add("background");
+			
+		}
 	}
 	
 	public void moveRight(Label[][] labels){
-		if(position.getX() != 14 && jumping == true && labels[position.getY()][position.getX() + 1].getStyleClass().contains("background")){
+		if(position.getX() != 14 && jumping == true && labels[position.getY()][position.getX() + 1].getStyleClass().contains("solid")){
 			return;
 		}
+		
 		if(position.getX() != 14 && labels[position.getY()][position.getX() + 1].getStyleClass().contains("background")){
 			labels[position.getY()][position.getX()].getStyleClass().clear();
 			labels[position.getY()][position.getX()].getStyleClass().add("background");
@@ -58,10 +60,14 @@ public class Player {
 			labels[position.getY()][position.getX() + 1].getStyleClass().add("player");
 			position.setX(position.getX() + 1);
 		} 
+		
+		if(jumping == true){
+			labels[position.getY() - 1][position.getX() - 1].getStyleClass().clear();
+			labels[position.getY() - 1][position.getX() - 1].getStyleClass().add("background");
+		}
 	}
 	
 	public void jump(Label[][] labels){
-		System.out.println("Test");
 		if(labels[position.getY() - 1][position.getX()].getStyleClass().contains("background")){
 			jumping = true;
 			TimerTask startJump = new TimerTask() {
