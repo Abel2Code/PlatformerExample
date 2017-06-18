@@ -88,7 +88,7 @@ public class Player {
 		}
 		
 		if(position.getX() != 14 && labels[position.getY()][position.getX() + 1].getStyleClass().contains("background")){
-			if(jumping != true || position.getX() == 0){
+			if(!jumping){
 				labels[position.getY()][position.getX()].getStyleClass().clear();
 				labels[position.getY()][position.getX()].getStyleClass().add("background");
 				
@@ -221,7 +221,7 @@ public class Player {
 				
 			};	
 			
-			jumpTimer.schedule(startJump, 0, 500);
+			jumpTimer.schedule(startJump, 0, 50);
 		}
 	}
 
