@@ -149,7 +149,7 @@ public class Player {
 				
 				@Override
 				public void run() {
-					
+					System.out.println(counter);
 					switch(counter){
 					case -1:
 						counter++;
@@ -191,16 +191,42 @@ public class Player {
 						jumping = false;
 						falling = true;
 						counter++;
-//					case 5:
-//						labels[position.getY()][position.getX()].getStyleClass().clear();
-//						labels[position.getY()][position.getX()].getStyleClass().add("playerBottemJump4");
-//						labels[position.getY() + 1][position.getX()].getStyleClass().clear();
-//						labels[position.getY() + 1][position.getX()].getStyleClass().add("playerTopJump4");
-//						counter++;
-//						break;
 					case 5:
-					
+						labels[position.getY()][position.getX()].getStyleClass().clear();
+						labels[position.getY()][position.getX()].getStyleClass().add("playerBottemJump4");
+						labels[position.getY() + 1][position.getX()].getStyleClass().clear();
+						labels[position.getY() + 1][position.getX()].getStyleClass().add("playerTopJump4");
+						counter++;
+						break;
+					case 6:
+						labels[position.getY()][position.getX()].getStyleClass().clear();
+						labels[position.getY()][position.getX()].getStyleClass().add("playerBottemJump3");
+						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
+						labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump3");
+						counter++;
+						break;
+					case 7:
+						labels[position.getY()][position.getX()].getStyleClass().clear();
+						labels[position.getY()][position.getX()].getStyleClass().add("playerBottemJump2");
+						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
+						labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump2");
+						counter++;
+						break;
+					case 8:
+						labels[position.getY()][position.getX()].getStyleClass().clear();
+						labels[position.getY()][position.getX()].getStyleClass().add("playerBottemJump1");
+						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
+						labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump1");
+						counter++;
+						break;
+					case 9:
+						labels[position.getY()][position.getX()].getStyleClass().clear();
+						labels[position.getY()][position.getX()].getStyleClass().add("player");
+						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
+						labels[position.getY() - 1][position.getX()].getStyleClass().add("background");
+						position.setY(position.getY() + 1);
 						counter = -1;
+						falling = false;
 						EnvironmentGUIPane.condition = false;
 						// Call fall method or execute fall through case 5-8
 						
@@ -221,7 +247,7 @@ public class Player {
 				
 			};	
 			
-			jumpTimer.schedule(startJump, 0, 50);
+			jumpTimer.schedule(startJump, 0, 500);
 		}
 	}
 
