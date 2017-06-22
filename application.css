@@ -12,7 +12,7 @@
 	-fx-background-color: yellow;
 }
 
-.playerBottemJump1{
+.playerBottomJump1{
 	-fx-border-width: 0.0 3.0 10.0 3.0;
 	-fx-border-style: solid;
 	-fx-background-color: yellow;
@@ -24,7 +24,7 @@
 	-fx-background-color: yellow;
 }
 
-.playerBottemJump2{
+.playerBottomJump2{
 	-fx-border-width: 0.0 3.0 20.0 3.0;
 	-fx-border-style: solid;
 	-fx-background-color: yellow;
@@ -36,7 +36,7 @@
 	-fx-background-color: yellow;
 }
 
-.playerBottemJump3{
+.playerBottomJump3{
 	-fx-border-width: 0.0 3.0 30.0 3.0;
 	-fx-border-style: solid;
 	-fx-background-color: yellow;
@@ -48,7 +48,7 @@
 	-fx-background-color: yellow;
 }
 
-.playerBottemJump4{
+.playerBottomJump4{
 	-fx-border-width: 0.0 3.0 40.0 3.0;
 	-fx-border-style: solid;
 	-fx-background-color: yellow;

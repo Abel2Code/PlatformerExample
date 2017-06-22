@@ -6,6 +6,11 @@ import java.util.TimerTask;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
 
+/* Bugs:
+ * 	Movement when falling leaves trail
+ *  If solid below when falling, solid will be deleted 
+ */
+
 public class Player {
 	Coordinate position;
 	Boolean falling = false;
@@ -48,25 +53,25 @@ public class Player {
 				switch(counter){
 				case 0:			
 					labels[position.getY()][position.getX() - 1].getStyleClass().clear();
-					labels[position.getY()][position.getX() - 1].getStyleClass().add("playerBottemJump1");
+					labels[position.getY()][position.getX() - 1].getStyleClass().add("playerBottomJump1");
 					labels[position.getY() - 1][position.getX() - 1].getStyleClass().clear();
 					labels[position.getY() - 1][position.getX() - 1].getStyleClass().add("playerTopJump1");
 					break;
 				case 1:
 					labels[position.getY()][position.getX() - 1].getStyleClass().clear();
-					labels[position.getY()][position.getX() - 1].getStyleClass().add("playerBottemJump2");
+					labels[position.getY()][position.getX() - 1].getStyleClass().add("playerBottomJump2");
 					labels[position.getY() - 1][position.getX() - 1].getStyleClass().clear();
 					labels[position.getY() - 1][position.getX() - 1].getStyleClass().add("playerTopJump2");
 					break;
 				case 2:
 					labels[position.getY()][position.getX() - 1].getStyleClass().clear();
-					labels[position.getY()][position.getX() - 1].getStyleClass().add("playerBottemJump3");
+					labels[position.getY()][position.getX() - 1].getStyleClass().add("playerBottomJump3");
 					labels[position.getY() - 1][position.getX() - 1].getStyleClass().clear();
 					labels[position.getY() - 1][position.getX() - 1].getStyleClass().add("playerTopJump3");
 					break;
 				case 3:
 					labels[position.getY()][position.getX() - 1].getStyleClass().clear();
-					labels[position.getY()][position.getX() - 1].getStyleClass().add("playerBottemJump4");
+					labels[position.getY()][position.getX() - 1].getStyleClass().add("playerBottomJump4");
 					labels[position.getY() - 1][position.getX() - 1].getStyleClass().clear();
 					labels[position.getY() - 1][position.getX() - 1].getStyleClass().add("playerTopJump4");
 					break;
@@ -103,25 +108,25 @@ public class Player {
 				switch(counter){
 				case 0:			
 					labels[position.getY()][position.getX() + 1].getStyleClass().clear();
-					labels[position.getY()][position.getX() + 1].getStyleClass().add("playerBottemJump1");
+					labels[position.getY()][position.getX() + 1].getStyleClass().add("playerBottomJump1");
 					labels[position.getY() - 1][position.getX() + 1].getStyleClass().clear();
 					labels[position.getY() - 1][position.getX() + 1].getStyleClass().add("playerTopJump1");
 					break;
 				case 1:
 					labels[position.getY()][position.getX() + 1].getStyleClass().clear();
-					labels[position.getY()][position.getX() + 1].getStyleClass().add("playerBottemJump2");
+					labels[position.getY()][position.getX() + 1].getStyleClass().add("playerBottomJump2");
 					labels[position.getY() - 1][position.getX() + 1].getStyleClass().clear();
 					labels[position.getY() - 1][position.getX() + 1].getStyleClass().add("playerTopJump2");
 					break;
 				case 2:
 					labels[position.getY()][position.getX() + 1].getStyleClass().clear();
-					labels[position.getY()][position.getX() + 1].getStyleClass().add("playerBottemJump3");
+					labels[position.getY()][position.getX() + 1].getStyleClass().add("playerBottomJump3");
 					labels[position.getY() - 1][position.getX() + 1].getStyleClass().clear();
 					labels[position.getY() - 1][position.getX() + 1].getStyleClass().add("playerTopJump3");
 					break;
 				case 3:
 					labels[position.getY()][position.getX() + 1].getStyleClass().clear();
-					labels[position.getY()][position.getX() + 1].getStyleClass().add("playerBottemJump4");
+					labels[position.getY()][position.getX() + 1].getStyleClass().add("playerBottomJump4");
 					labels[position.getY() - 1][position.getX() + 1].getStyleClass().clear();
 					labels[position.getY() - 1][position.getX() + 1].getStyleClass().add("playerTopJump4");
 					break;
@@ -149,35 +154,34 @@ public class Player {
 				
 				@Override
 				public void run() {
-					System.out.println(counter);
 					switch(counter){
 					case -1:
 						counter++;
 						break;
 					case 0:
 						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("playerBottemJump1");
+						labels[position.getY()][position.getX()].getStyleClass().add("playerBottomJump1");
 						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
 						labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump1");
 						counter++;
 						break;
 					case 1:
 						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("playerBottemJump2");
+						labels[position.getY()][position.getX()].getStyleClass().add("playerBottomJump2");
 						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
 						labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump2");
 						counter++;
 						break;
 					case 2:
 						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("playerBottemJump3");
+						labels[position.getY()][position.getX()].getStyleClass().add("playerBottomJump3");
 						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
 						labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump3");
 						counter++;
 						break;
 					case 3:
 						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("playerBottemJump4");
+						labels[position.getY()][position.getX()].getStyleClass().add("playerBottomJump4");
 						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
 						labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump4");
 						counter++;
@@ -193,37 +197,37 @@ public class Player {
 						counter++;
 					case 5:
 						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("playerBottemJump4");
+						labels[position.getY()][position.getX()].getStyleClass().add("playerTopJump4");
 						labels[position.getY() + 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() + 1][position.getX()].getStyleClass().add("playerTopJump4");
+						labels[position.getY() + 1][position.getX()].getStyleClass().add("playerBottomJump4");
 						counter++;
 						break;
 					case 6:
 						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("playerBottemJump3");
-						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump3");
+						labels[position.getY()][position.getX()].getStyleClass().add("playerTopJump3");
+						labels[position.getY() + 1][position.getX()].getStyleClass().clear();
+						labels[position.getY() + 1][position.getX()].getStyleClass().add("playerBottomJump3");
 						counter++;
 						break;
 					case 7:
 						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("playerBottemJump2");
-						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump2");
+						labels[position.getY()][position.getX()].getStyleClass().add("playerTopJump2");
+						labels[position.getY() + 1][position.getX()].getStyleClass().clear();
+						labels[position.getY() + 1][position.getX()].getStyleClass().add("playerBottomJump2");
 						counter++;
 						break;
 					case 8:
 						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("playerBottemJump1");
-						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump1");
+						labels[position.getY()][position.getX()].getStyleClass().add("playerTopJump1");
+						labels[position.getY() + 1][position.getX()].getStyleClass().clear();
+						labels[position.getY() + 1][position.getX()].getStyleClass().add("playerBottomJump1");
 						counter++;
 						break;
 					case 9:
 						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("player");
-						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() - 1][position.getX()].getStyleClass().add("background");
+						labels[position.getY()][position.getX()].getStyleClass().add("background");
+						labels[position.getY() + 1][position.getX()].getStyleClass().clear();
+						labels[position.getY() + 1][position.getX()].getStyleClass().add("player");
 						position.setY(position.getY() + 1);
 						counter = -1;
 						falling = false;
@@ -247,7 +251,7 @@ public class Player {
 				
 			};	
 			
-			jumpTimer.schedule(startJump, 0, 500);
+			jumpTimer.schedule(startJump, 0, 1000);
 		}
 	}
 
