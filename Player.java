@@ -37,7 +37,7 @@ public class Player {
 			return;
 		}
 		if(position.getX() != 0 && labels[position.getY()][position.getX() - 1].getStyleClass().contains("background")){
-			if(jumping != true || position.getX() == 14){
+			if((!(jumping || falling))|| position.getX() == 14){
 				labels[position.getY()][position.getX()].getStyleClass().clear();
 				labels[position.getY()][position.getX()].getStyleClass().add("background");
 				
@@ -84,6 +84,10 @@ public class Player {
 				}
 			}
 			position.setX(position.getX() - 1);
+			if(falling == true){
+				labels[position.getY() + 1][position.getX() + 1].getStyleClass().clear();
+				labels[position.getY() + 1][position.getX() + 1].getStyleClass().add("background");
+			}
 		}
 	}
 	
@@ -93,7 +97,7 @@ public class Player {
 		}
 		
 		if(position.getX() != 14 && labels[position.getY()][position.getX() + 1].getStyleClass().contains("background")){
-			if(!jumping){
+			if(!(jumping || falling)){
 				labels[position.getY()][position.getX()].getStyleClass().clear();
 				labels[position.getY()][position.getX()].getStyleClass().add("background");
 				
@@ -144,10 +148,16 @@ public class Player {
 			labels[position.getY() - 1][position.getX() - 1].getStyleClass().clear();
 			labels[position.getY() - 1][position.getX() - 1].getStyleClass().add("background");
 		}
+		
+		if(falling == true){
+			labels[position.getY() + 1][position.getX() - 1].getStyleClass().clear();
+			labels[position.getY() + 1][position.getX() - 1].getStyleClass().add("background");
+		}
 	}
 	
 	public void jump(Label[][] labels){
 		if(labels[position.getY() - 1][position.getX()].getStyleClass().contains("background")){
+			System.out.println("Trying to JUmp");
 			EnvironmentGUIPane.condition = true;
 			jumping = true;
 			TimerTask startJump = new TimerTask() {
