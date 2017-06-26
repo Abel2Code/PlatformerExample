@@ -32,190 +32,190 @@ public class Player {
 		return position;
 	}
 	
-	public void moveLeft(Label[][] labels){
-		if(position.getX() != 0 && jumping == true && labels[position.getY() - 1][position.getX() - 1].getStyleClass().contains("solid")){
+	public void moveLeft(){
+		if(position.getX() != 0 && jumping == true && EnvironmentGUIPane.labels[position.getY() - 1][position.getX() - 1].getStyleClass().contains("solid")){
 			return;
 		}
-		if(position.getX() != 0 && labels[position.getY()][position.getX() - 1].getStyleClass().contains("background")){
+		if(position.getX() != 0 && EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().contains("background")){
 			if((!(jumping || falling))|| position.getX() == 14){
-				labels[position.getY()][position.getX()].getStyleClass().clear();
-				labels[position.getY()][position.getX()].getStyleClass().add("background");
+				EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
+				EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("background");
 				
-				labels[position.getY()][position.getX() - 1].getStyleClass().clear();
-				labels[position.getY()][position.getX() - 1].getStyleClass().add("player");
+				EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().clear();
+				EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().add("player");
 				
 			} else{
-				labels[position.getY()][position.getX()].getStyleClass().clear();
-				labels[position.getY()][position.getX()].getStyleClass().add("background");
-				labels[position.getY() - 1][position.getX()].getStyleClass().clear();
-				labels[position.getY() - 1][position.getX()].getStyleClass().add("background");
+				EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
+				EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("background");
+				EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().clear();
+				EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().add("background");
 				
 				switch(counter){
 				case 0:			
-					labels[position.getY()][position.getX() - 1].getStyleClass().clear();
-					labels[position.getY()][position.getX() - 1].getStyleClass().add("playerBottomJump1");
-					labels[position.getY() - 1][position.getX() - 1].getStyleClass().clear();
-					labels[position.getY() - 1][position.getX() - 1].getStyleClass().add("playerTopJump1");
+					EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().add("playerBottomJump1");
+					EnvironmentGUIPane.labels[position.getY() - 1][position.getX() - 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY() - 1][position.getX() - 1].getStyleClass().add("playerTopJump1");
 					break;
 				case 1:
-					labels[position.getY()][position.getX() - 1].getStyleClass().clear();
-					labels[position.getY()][position.getX() - 1].getStyleClass().add("playerBottomJump2");
-					labels[position.getY() - 1][position.getX() - 1].getStyleClass().clear();
-					labels[position.getY() - 1][position.getX() - 1].getStyleClass().add("playerTopJump2");
+					EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().add("playerBottomJump2");
+					EnvironmentGUIPane.labels[position.getY() - 1][position.getX() - 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY() - 1][position.getX() - 1].getStyleClass().add("playerTopJump2");
 					break;
 				case 2:
-					labels[position.getY()][position.getX() - 1].getStyleClass().clear();
-					labels[position.getY()][position.getX() - 1].getStyleClass().add("playerBottomJump3");
-					labels[position.getY() - 1][position.getX() - 1].getStyleClass().clear();
-					labels[position.getY() - 1][position.getX() - 1].getStyleClass().add("playerTopJump3");
+					EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().add("playerBottomJump3");
+					EnvironmentGUIPane.labels[position.getY() - 1][position.getX() - 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY() - 1][position.getX() - 1].getStyleClass().add("playerTopJump3");
 					break;
 				case 3:
-					labels[position.getY()][position.getX() - 1].getStyleClass().clear();
-					labels[position.getY()][position.getX() - 1].getStyleClass().add("playerBottomJump4");
-					labels[position.getY() - 1][position.getX() - 1].getStyleClass().clear();
-					labels[position.getY() - 1][position.getX() - 1].getStyleClass().add("playerTopJump4");
+					EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().add("playerBottomJump4");
+					EnvironmentGUIPane.labels[position.getY() - 1][position.getX() - 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY() - 1][position.getX() - 1].getStyleClass().add("playerTopJump4");
 					break;
 				case 4:
-					labels[position.getY()][position.getX() - 1].getStyleClass().clear();
-					labels[position.getY()][position.getX() - 1].getStyleClass().add("background");
-					labels[position.getY() - 1][position.getX() - 1].getStyleClass().clear();
-					labels[position.getY() - 1][position.getX() - 1].getStyleClass().add("player");
+					EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().add("background");
+					EnvironmentGUIPane.labels[position.getY() - 1][position.getX() - 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY() - 1][position.getX() - 1].getStyleClass().add("player");
 				case 5:
-					labels[position.getY()][position.getX() - 1].getStyleClass().clear();
-					labels[position.getY()][position.getX() - 1].getStyleClass().add("playerTopJump4");
-					labels[position.getY() + 1][position.getX() - 1].getStyleClass().clear();
-					labels[position.getY() + 1][position.getX() - 1].getStyleClass().add("playerBottomJump4");
+					EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().add("playerTopJump4");
+					EnvironmentGUIPane.labels[position.getY() + 1][position.getX() - 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY() + 1][position.getX() - 1].getStyleClass().add("playerBottomJump4");
 					break;
 				case 6:
-					labels[position.getY()][position.getX() - 1].getStyleClass().clear();
-					labels[position.getY()][position.getX() - 1].getStyleClass().add("playerTopJump3");
-					labels[position.getY() + 1][position.getX() - 1].getStyleClass().clear();
-					labels[position.getY() + 1][position.getX() - 1].getStyleClass().add("playerBottomJump3");
+					EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().add("playerTopJump3");
+					EnvironmentGUIPane.labels[position.getY() + 1][position.getX() - 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY() + 1][position.getX() - 1].getStyleClass().add("playerBottomJump3");
 					break;
 				case 7:
-					labels[position.getY()][position.getX() - 1].getStyleClass().clear();
-					labels[position.getY()][position.getX() - 1].getStyleClass().add("playerTopJump2");
-					labels[position.getY() + 1][position.getX() - 1].getStyleClass().clear();
-					labels[position.getY() + 1][position.getX() - 1].getStyleClass().add("playerBottomJump2");
+					EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().add("playerTopJump2");
+					EnvironmentGUIPane.labels[position.getY() + 1][position.getX() - 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY() + 1][position.getX() - 1].getStyleClass().add("playerBottomJump2");
 					break;
 				case 8:
-					labels[position.getY()][position.getX() - 1].getStyleClass().clear();
-					labels[position.getY()][position.getX() - 1].getStyleClass().add("playerTopJump1");
-					labels[position.getY() + 1][position.getX() - 1].getStyleClass().clear();
-					labels[position.getY() + 1][position.getX() - 1].getStyleClass().add("playerBottomJump1");
+					EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().add("playerTopJump1");
+					EnvironmentGUIPane.labels[position.getY() + 1][position.getX() - 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY() + 1][position.getX() - 1].getStyleClass().add("playerBottomJump1");
 					break;
 				case 9:
-					labels[position.getY()][position.getX() - 1].getStyleClass().clear();
-					labels[position.getY()][position.getX() - 1].getStyleClass().add("background");
-					labels[position.getY() + 1][position.getX() - 1].getStyleClass().clear();
-					labels[position.getY() + 1][position.getX() - 1].getStyleClass().add("player");
+					EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().add("background");
+					EnvironmentGUIPane.labels[position.getY() + 1][position.getX() - 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY() + 1][position.getX() - 1].getStyleClass().add("player");
 				
 				}
 			}
 			position.setX(position.getX() - 1);
 			if(falling == true){
-				labels[position.getY() + 1][position.getX() + 1].getStyleClass().clear();
-				labels[position.getY() + 1][position.getX() + 1].getStyleClass().add("background");
+				EnvironmentGUIPane.labels[position.getY() + 1][position.getX() + 1].getStyleClass().clear();
+				EnvironmentGUIPane.labels[position.getY() + 1][position.getX() + 1].getStyleClass().add("background");
 			}
 		}
 	}
 	
-	public void moveRight(Label[][] labels){
-		if(position.getX() != 14 && jumping == true && (labels[position.getY() - 1][position.getX() + 1].getStyleClass().contains("solid"))){
+	public void moveRight(){
+		if(position.getX() != 14 && jumping == true && (EnvironmentGUIPane.labels[position.getY() - 1][position.getX() + 1].getStyleClass().contains("solid"))){
 			return;
 		}
 		
-		if(position.getX() != 14 && labels[position.getY()][position.getX() + 1].getStyleClass().contains("background")){
+		if(position.getX() != 14 && EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().contains("background")){
 			if(!(jumping || falling)){
-				labels[position.getY()][position.getX()].getStyleClass().clear();
-				labels[position.getY()][position.getX()].getStyleClass().add("background");
+				EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
+				EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("background");
 				
-				labels[position.getY()][position.getX() + 1].getStyleClass().clear();
-				labels[position.getY()][position.getX() + 1].getStyleClass().add("player");
+				EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().clear();
+				EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().add("player");
 			} else{
-				labels[position.getY()][position.getX()].getStyleClass().clear();
-				labels[position.getY()][position.getX()].getStyleClass().add("background");
-				labels[position.getY() - 1][position.getX()].getStyleClass().clear();
-				labels[position.getY() - 1][position.getX()].getStyleClass().add("background");
+				EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
+				EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("background");
+				EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().clear();
+				EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().add("background");
 				
 				switch(counter){
 				case 0:			
-					labels[position.getY()][position.getX() + 1].getStyleClass().clear();
-					labels[position.getY()][position.getX() + 1].getStyleClass().add("playerBottomJump1");
-					labels[position.getY() - 1][position.getX() + 1].getStyleClass().clear();
-					labels[position.getY() - 1][position.getX() + 1].getStyleClass().add("playerTopJump1");
+					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().add("playerBottomJump1");
+					EnvironmentGUIPane.labels[position.getY() - 1][position.getX() + 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY() - 1][position.getX() + 1].getStyleClass().add("playerTopJump1");
 					break;
 				case 1:
-					labels[position.getY()][position.getX() + 1].getStyleClass().clear();
-					labels[position.getY()][position.getX() + 1].getStyleClass().add("playerBottomJump2");
-					labels[position.getY() - 1][position.getX() + 1].getStyleClass().clear();
-					labels[position.getY() - 1][position.getX() + 1].getStyleClass().add("playerTopJump2");
+					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().add("playerBottomJump2");
+					EnvironmentGUIPane.labels[position.getY() - 1][position.getX() + 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY() - 1][position.getX() + 1].getStyleClass().add("playerTopJump2");
 					break;
 				case 2:
-					labels[position.getY()][position.getX() + 1].getStyleClass().clear();
-					labels[position.getY()][position.getX() + 1].getStyleClass().add("playerBottomJump3");
-					labels[position.getY() - 1][position.getX() + 1].getStyleClass().clear();
-					labels[position.getY() - 1][position.getX() + 1].getStyleClass().add("playerTopJump3");
+					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().add("playerBottomJump3");
+					EnvironmentGUIPane.labels[position.getY() - 1][position.getX() + 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY() - 1][position.getX() + 1].getStyleClass().add("playerTopJump3");
 					break;
 				case 3:
-					labels[position.getY()][position.getX() + 1].getStyleClass().clear();
-					labels[position.getY()][position.getX() + 1].getStyleClass().add("playerBottomJump4");
-					labels[position.getY() - 1][position.getX() + 1].getStyleClass().clear();
-					labels[position.getY() - 1][position.getX() + 1].getStyleClass().add("playerTopJump4");
+					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().add("playerBottomJump4");
+					EnvironmentGUIPane.labels[position.getY() - 1][position.getX() + 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY() - 1][position.getX() + 1].getStyleClass().add("playerTopJump4");
 					break;
 				case 4:
-					labels[position.getY()][position.getX() + 1].getStyleClass().clear();
-					labels[position.getY()][position.getX() + 1].getStyleClass().add("background");
-					labels[position.getY() - 1][position.getX() + 1].getStyleClass().clear();
-					labels[position.getY() - 1][position.getX() + 1].getStyleClass().add("player");
+					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().add("background");
+					EnvironmentGUIPane.labels[position.getY() - 1][position.getX() + 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY() - 1][position.getX() + 1].getStyleClass().add("player");
 				case 5:
-					labels[position.getY()][position.getX() + 1].getStyleClass().clear();
-					labels[position.getY()][position.getX() + 1].getStyleClass().add("playerTopJump4");
-					labels[position.getY() + 1][position.getX() + 1].getStyleClass().clear();
-					labels[position.getY() + 1][position.getX() + 1].getStyleClass().add("playerBottomJump4");
+					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().add("playerTopJump4");
+					EnvironmentGUIPane.labels[position.getY() + 1][position.getX() + 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY() + 1][position.getX() + 1].getStyleClass().add("playerBottomJump4");
 					counter++;
 					break;
 				case 6:
-					labels[position.getY()][position.getX() + 1].getStyleClass().clear();
-					labels[position.getY()][position.getX() + 1].getStyleClass().add("playerTopJump3");
-					labels[position.getY() + 1][position.getX() + 1].getStyleClass().clear();
-					labels[position.getY() + 1][position.getX() + 1].getStyleClass().add("playerBottomJump3");
+					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().add("playerTopJump3");
+					EnvironmentGUIPane.labels[position.getY() + 1][position.getX() + 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY() + 1][position.getX() + 1].getStyleClass().add("playerBottomJump3");
 					break;
 				case 7:
-					labels[position.getY()][position.getX() + 1].getStyleClass().clear();
-					labels[position.getY()][position.getX() + 1].getStyleClass().add("playerTopJump2");
-					labels[position.getY() + 1][position.getX() + 1].getStyleClass().clear();
-					labels[position.getY() + 1][position.getX() + 1].getStyleClass().add("playerBottomJump2");
+					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().add("playerTopJump2");
+					EnvironmentGUIPane.labels[position.getY() + 1][position.getX() + 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY() + 1][position.getX() + 1].getStyleClass().add("playerBottomJump2");
 					break;
 				case 8:
-					labels[position.getY()][position.getX() + 1].getStyleClass().clear();
-					labels[position.getY()][position.getX() + 1].getStyleClass().add("playerTopJump1");
-					labels[position.getY() + 1][position.getX() + 1].getStyleClass().clear();
-					labels[position.getY() + 1][position.getX() + 1].getStyleClass().add("playerBottomJump1");
+					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().add("playerTopJump1");
+					EnvironmentGUIPane.labels[position.getY() + 1][position.getX() + 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY() + 1][position.getX() + 1].getStyleClass().add("playerBottomJump1");
 					break;
 				case 9:
-					labels[position.getY()][position.getX() + 1].getStyleClass().clear();
-					labels[position.getY()][position.getX() + 1].getStyleClass().add("background");
-					labels[position.getY() + 1][position.getX() + 1].getStyleClass().clear();
-					labels[position.getY() + 1][position.getX() + 1].getStyleClass().add("player");
+					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().add("background");
+					EnvironmentGUIPane.labels[position.getY() + 1][position.getX() + 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY() + 1][position.getX() + 1].getStyleClass().add("player");
 				}
 			}
 			position.setX(position.getX() + 1);
 		} 
 		
 		if(jumping == true){
-			labels[position.getY() - 1][position.getX() - 1].getStyleClass().clear();
-			labels[position.getY() - 1][position.getX() - 1].getStyleClass().add("background");
+			EnvironmentGUIPane.labels[position.getY() - 1][position.getX() - 1].getStyleClass().clear();
+			EnvironmentGUIPane.labels[position.getY() - 1][position.getX() - 1].getStyleClass().add("background");
 		}
 		
 		if(falling == true){
-			labels[position.getY() + 1][position.getX() - 1].getStyleClass().clear();
-			labels[position.getY() + 1][position.getX() - 1].getStyleClass().add("background");
+			EnvironmentGUIPane.labels[position.getY() + 1][position.getX() - 1].getStyleClass().clear();
+			EnvironmentGUIPane.labels[position.getY() + 1][position.getX() - 1].getStyleClass().add("background");
 		}
 	}
 	
-	public void jump(Label[][] labels){
-		if(labels[position.getY() - 1][position.getX()].getStyleClass().contains("background")){
+	public void jump(){
+		if(EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().contains("background")){
 			System.out.println("initiating Jump Logic");
 			EnvironmentGUIPane.condition = true;
 			jumping = true;
@@ -229,76 +229,75 @@ public class Player {
 						counter++;
 						break;
 					case 0:
-						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("playerBottomJump1");
-						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump1");
+						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
+						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("playerBottomJump1");
+						EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().clear();
+						EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump1");
 						counter++;
 						break;
 					case 1:
-						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("playerBottomJump2");
-						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump2");
+						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
+						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("playerBottomJump2");
+						EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().clear();
+						EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump2");
 						counter++;
 						break;
 					case 2:
-						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("playerBottomJump3");
-						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump3");
+						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
+						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("playerBottomJump3");
+						EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().clear();
+						EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump3");
 						counter++;
 						break;
 					case 3:
-						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("playerBottomJump4");
-						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump4");
+						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
+						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("playerBottomJump4");
+						EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().clear();
+						EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump4");
 						counter++;
 						break;
 					case 4:
-						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("background");
-						labels[position.getY() - 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() - 1][position.getX()].getStyleClass().add("player");
+						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
+						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("background");
+						EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().clear();
+						EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().add("player");
 						position.setY(position.getY() - 1);
 						jumping = false;
 						falling = true;
 						counter++;
 					case 5:
-						System.out.println("testing case 5");
-						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("playerTopJump4");
-						labels[position.getY() + 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() + 1][position.getX()].getStyleClass().add("playerBottomJump4");
+						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
+						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("playerTopJump4");
+						EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().clear();
+						EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().add("playerBottomJump4");
 						counter++;
 						break;
 					case 6:
-						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("playerTopJump3");
-						labels[position.getY() + 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() + 1][position.getX()].getStyleClass().add("playerBottomJump3");
+						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
+						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("playerTopJump3");
+						EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().clear();
+						EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().add("playerBottomJump3");
 						counter++;
 						break;
 					case 7:
-						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("playerTopJump2");
-						labels[position.getY() + 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() + 1][position.getX()].getStyleClass().add("playerBottomJump2");
+						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
+						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("playerTopJump2");
+						EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().clear();
+						EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().add("playerBottomJump2");
 						counter++;
 						break;
 					case 8:
-						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("playerTopJump1");
-						labels[position.getY() + 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() + 1][position.getX()].getStyleClass().add("playerBottomJump1");
+						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
+						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("playerTopJump1");
+						EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().clear();
+						EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().add("playerBottomJump1");
 						counter++;
 						break;
 					case 9:
-						labels[position.getY()][position.getX()].getStyleClass().clear();
-						labels[position.getY()][position.getX()].getStyleClass().add("background");
-						labels[position.getY() + 1][position.getX()].getStyleClass().clear();
-						labels[position.getY() + 1][position.getX()].getStyleClass().add("player");
+						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
+						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("background");
+						EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().clear();
+						EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().add("player");
 						position.setY(position.getY() + 1);
 						counter = -1;
 						falling = false;
@@ -322,7 +321,7 @@ public class Player {
 				
 			};	
 			
-			jumpTimer.schedule(startJump, 0, 40);
+			jumpTimer.schedule(startJump, 0, 400);
 		}
 	}
 

@@ -7,7 +7,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 
 public class EnvironmentGUIPane extends GridPane{
-	private Label[][] labels;
+	static Label[][] labels;
 	private int rows;
 	private int columns;
 	private Player player = new Player(0,13);
@@ -33,12 +33,12 @@ public class EnvironmentGUIPane extends GridPane{
 			@Override
 			public void handle(KeyEvent event) {
 				if(event.getCode() == KeyCode.RIGHT || event.getCode() == KeyCode.D){
-					player.moveRight(labels);
+					player.moveRight();
 				} else if(event.getCode() == KeyCode.LEFT || event.getCode() == KeyCode.A){
-					player.moveLeft(labels);
+					player.moveLeft();
 				} else if((event.getCode() == KeyCode.UP || event.getCode() == KeyCode.W) && condition == false){
 					System.out.println("Jump");
-					player.jump(labels);
+					player.jump();
 				}
 			}
 		});
