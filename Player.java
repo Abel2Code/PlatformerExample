@@ -50,7 +50,7 @@ public class Player {
 				EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().clear();
 				EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().add("background");
 				
-				switch(counter){
+				switch(counter - 1){
 				case 0:			
 					EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().clear();
 					EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().add("playerBottomJump1");
@@ -137,8 +137,7 @@ public class Player {
 				EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("background");
 				EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().clear();
 				EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().add("background");
-				
-				switch(counter){
+				switch(counter - 1){
 				case 0:			
 					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().clear();
 					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().add("playerBottomJump1");
@@ -173,7 +172,6 @@ public class Player {
 					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().add("playerTopJump4");
 					EnvironmentGUIPane.labels[position.getY() + 1][position.getX() + 1].getStyleClass().clear();
 					EnvironmentGUIPane.labels[position.getY() + 1][position.getX() + 1].getStyleClass().add("playerBottomJump4");
-					counter++;
 					break;
 				case 6:
 					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().clear();
@@ -216,14 +214,12 @@ public class Player {
 	
 	public void jump(){
 		if(EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().contains("background")){
-			System.out.println("initiating Jump Logic");
 			EnvironmentGUIPane.condition = true;
 			jumping = true;
 			TimerTask startJump = new TimerTask() {
 				
 				@Override
 				public void run() {
-					System.out.println(counter);
 					switch(counter){
 					case -1:
 						counter++;
@@ -321,11 +317,7 @@ public class Player {
 				
 			};	
 			
-			jumpTimer.schedule(startJump, 0, 400);
+			jumpTimer.schedule(startJump, 0, 1000);
 		}
-	}
-
-	public void fall(){ //If falling, will execute gravity
-		
 	}
 }

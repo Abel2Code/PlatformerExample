@@ -37,7 +37,6 @@ public class EnvironmentGUIPane extends GridPane{
 				} else if(event.getCode() == KeyCode.LEFT || event.getCode() == KeyCode.A){
 					player.moveLeft();
 				} else if((event.getCode() == KeyCode.UP || event.getCode() == KeyCode.W) && condition == false){
-					System.out.println("Jump");
 					player.jump();
 				}
 			}
