@@ -7,7 +7,6 @@ import javafx.application.Platform;
 import javafx.scene.control.Label;
 
 /* Bugs:
- * 	Movement when falling leaves trail
  *  If solid below when falling, solid will be deleted 
  */
 
@@ -257,11 +256,27 @@ public class Player {
 						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("background");
 						EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().clear();
 						EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().add("player");
-						position.setY(position.getY() - 1);
 						jumping = false;
 						falling = true;
 						counter++;
 					case 5:
+						if(!EnvironmentGUIPane.labels[position.getX()][position.getY() - 1].getStyleClass().contains("background")){
+							counter = -1;
+							EnvironmentGUIPane.condition = false;
+							Platform.runLater(new Runnable(){
+								
+								@Override
+								public void run() {
+									jumpTimer.cancel();
+									jumpTimer = new Timer();
+								}
+								
+							});
+							return;
+						} else{
+							System.out.println("hi");
+						}
+						position.setY(position.getY() - 1);
 						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
 						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("playerTopJump4");
 						EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().clear();
