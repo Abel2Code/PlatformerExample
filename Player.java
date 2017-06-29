@@ -200,11 +200,6 @@ public class Player {
 			position.setX(position.getX() + 1);
 		} 
 		
-		if(jumping == true){
-			EnvironmentGUIPane.labels[position.getY() - 1][position.getX() - 1].getStyleClass().clear();
-			EnvironmentGUIPane.labels[position.getY() - 1][position.getX() - 1].getStyleClass().add("background");
-		}
-		
 		if(falling == true){
 			EnvironmentGUIPane.labels[position.getY() + 1][position.getX() - 1].getStyleClass().clear();
 			EnvironmentGUIPane.labels[position.getY() + 1][position.getX() - 1].getStyleClass().add("background");
@@ -256,9 +251,9 @@ public class Player {
 						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("background");
 						EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().clear();
 						EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().add("player");
+						position.setY(position.getY() - 1);
 						jumping = false;
 						falling = true;
-						counter++;
 					case 5:
 						if(!EnvironmentGUIPane.labels[position.getX()][position.getY() - 1].getStyleClass().contains("background")){
 							counter = -1;
@@ -273,10 +268,7 @@ public class Player {
 								
 							});
 							return;
-						} else{
-							System.out.println("hi");
-						}
-						position.setY(position.getY() - 1);
+						} 
 						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
 						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("playerTopJump4");
 						EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().clear();
