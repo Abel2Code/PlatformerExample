@@ -254,8 +254,8 @@ public class Player {
 						position.setY(position.getY() - 1);
 						jumping = false;
 						falling = true;
-					case 5:
-						if(!EnvironmentGUIPane.labels[position.getX()][position.getY() - 1].getStyleClass().contains("background")){
+						case 5:
+							if(!EnvironmentGUIPane.labels[position.getX()][position.getY() - 1].getStyleClass().contains("background")){
 							counter = -1;
 							EnvironmentGUIPane.condition = false;
 							Platform.runLater(new Runnable(){
@@ -273,6 +273,7 @@ public class Player {
 						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("playerTopJump4");
 						EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().clear();
 						EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().add("playerBottomJump4");
+						
 						counter++;
 						break;
 					case 6:
