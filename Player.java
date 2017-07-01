@@ -214,6 +214,7 @@ public class Player {
 				
 				@Override
 				public void run() {
+					System.out.println(counter);
 					switch(counter){
 					case -1:
 						counter++;
@@ -245,30 +246,40 @@ public class Player {
 						EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().clear();
 						EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump4");
 						counter++;
+						System.out.println("End Counter");
 						break;
 					case 4:
-						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
-						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("background");
-						EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().clear();
-						EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().add("player");
-						position.setY(position.getY() - 1);
+						Platform.runLater(new Runnable(){
+							
+							@Override
+							public void run() {
+								EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
+								EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("background");
+								EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().clear();
+								EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().add("player");
+								position.setY(position.getY() - 1);	
+							}
+							
+						});
+						
 						jumping = false;
 						falling = true;
+						
 						case 5:
-							if(!EnvironmentGUIPane.labels[position.getX()][position.getY() - 1].getStyleClass().contains("background")){
-							counter = -1;
-							EnvironmentGUIPane.condition = false;
-							Platform.runLater(new Runnable(){
-								
-								@Override
-								public void run() {
-									jumpTimer.cancel();
-									jumpTimer = new Timer();
-								}
-								
-							});
+							if(EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().contains("background")){
+								counter = -1;
+								EnvironmentGUIPane.condition = false;
+								Platform.runLater(new Runnable(){
+									
+									@Override
+									public void run() {
+										jumpTimer.cancel();
+										jumpTimer = new Timer();
+									}
+									
+								});
 							return;
-						} 
+							} 
 						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
 						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("playerTopJump4");
 						EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().clear();
