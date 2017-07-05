@@ -16,6 +16,16 @@ public class MainMenu {
 		
 	public static GridPane createMainMenu(){
 		GridPane menu = new GridPane();
+		Button playground = new Button("Playground");
+		playground.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<Event>(){
+			@Override
+			public void handle(Event event){
+				Main.currentLevel = 0;
+			}
+		});
+		menu.add(playground, 0, 0);
+		menu.add(new Label("\t"), 1, 0);
+		
 		Button level1 = new Button("Level 1");
 		level1.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<Event>(){
 			@Override
@@ -24,9 +34,9 @@ public class MainMenu {
 			}			
 		});	
 		
-		menu.add(level1, 0, 0);
+		menu.add(level1, 2, 0);
 		
-		menu.add(new Label("\t"), 1, 0);
+		menu.add(new Label("\t"), 3, 0);
 		
 		Button level2 = new Button("Level 2");
 		level2.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<Event>(){
@@ -36,7 +46,7 @@ public class MainMenu {
 			}			
 		});
 		
-		menu.add(level2, 2, 0);
+		menu.add(level2, 4, 0);
 		chooseLevel();
 		
 		return menu;
@@ -48,7 +58,7 @@ public class MainMenu {
 			
 			@Override
 			public void run() {
-				if(Main.currentLevel != 0){
+				if(Main.currentLevel != -1){
 					Platform.runLater(new Runnable(){
 	
 						@Override

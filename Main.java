@@ -6,7 +6,7 @@ import javafx.stage.Stage;
 
 
 public class Main extends Application {
-	public static int currentLevel = 0;
+	public static int currentLevel = -1;
 	public static Scene scene = new Scene(MainMenu.createMainMenu(),649,650);
 	
 	@Override
