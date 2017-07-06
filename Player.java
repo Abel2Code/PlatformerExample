@@ -249,37 +249,32 @@ public class Player {
 						System.out.println("End Counter");
 						break;
 					case 4:
-						Platform.runLater(new Runnable(){
-							
-							@Override
-							public void run() {
 								EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
 								EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("background");
 								EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().clear();
 								EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().add("player");
 								position.setY(position.getY() - 1);	
-							}
+								System.out.println("Hi");
 							
-						});
 						
 						jumping = false;
 						falling = true;
 						
 						case 5:
-							if(EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().contains("background")){
-								counter = -1;
-								EnvironmentGUIPane.condition = false;
-								Platform.runLater(new Runnable(){
-									
-									@Override
-									public void run() {
-										jumpTimer.cancel();
-										jumpTimer = new Timer();
-									}
-									
-								});
-							return;
-							} 
+//							if(false&&!EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().contains("background")){
+//								counter = -1;
+//								EnvironmentGUIPane.condition = false;
+//								Platform.runLater(new Runnable(){
+//									
+//									@Override
+//									public void run() {
+//										jumpTimer.cancel();
+//										jumpTimer = new Timer();
+//									}
+//									
+//								});
+//							return;
+//							} 
 						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
 						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("playerTopJump4");
 						EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().clear();
