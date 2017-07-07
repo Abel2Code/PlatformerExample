@@ -214,7 +214,6 @@ public class Player {
 				
 				@Override
 				public void run() {
-					System.out.println(counter);
 					switch(counter){
 					case -1:
 						counter++;
@@ -246,22 +245,22 @@ public class Player {
 						EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().clear();
 						EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().add("playerTopJump4");
 						counter++;
-						System.out.println("End Counter");
 						break;
 					case 4:
-								EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
-								EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("background");
-								EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().clear();
-								EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().add("player");
-								position.setY(position.getY() - 1);	
-								System.out.println("Hi");
+						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
+						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("background");
+						EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().clear();
+						EnvironmentGUIPane.labels[position.getY() - 1][position.getX()].getStyleClass().add("player");
 							
 						
 						jumping = false;
 						falling = true;
+						position.setY(position.getY() - 1);	
+						counter++;
+						break;
 						
 						case 5:
-//							if(false&&!EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().contains("background")){
+//							if(EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().contains("background")){
 //								counter = -1;
 //								EnvironmentGUIPane.condition = false;
 //								Platform.runLater(new Runnable(){
@@ -274,7 +273,7 @@ public class Player {
 //									
 //								});
 //							return;
-//							} 
+////							} This must stay this way until I can fix jump bug
 						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
 						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("playerTopJump4");
 						EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().clear();
@@ -311,7 +310,6 @@ public class Player {
 						position.setY(position.getY() + 1);
 						counter = -1;
 						falling = false;
-						EnvironmentGUIPane.condition = false;
 						// Call fall method or execute fall through case 5-8
 						
 						

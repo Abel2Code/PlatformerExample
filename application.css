@@ -11,18 +11,6 @@
 	-fx-border-style: solid;
 	-fx-background-color: yellow;
 }
-
-.test1{
-	-fx-border-width: 5.0 3.0 0.0 3.0; 
-	-fx-border-style: solid;
-	-fx-background-color: orange;
-}
-
-.test2{
-	-fx-border-width: 5.0 3.0 0.0 3.0; 
-	-fx-border-style: solid;
-	-fx-background-color: green;
-}
 .playerBottomJump1{
 	-fx-border-width: 0.0 3.0 10.0 3.0;
 	-fx-border-style: solid;
