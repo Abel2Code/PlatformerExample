@@ -75,10 +75,11 @@ public class Player {
 					EnvironmentGUIPane.labels[position.getY() - 1][position.getX() - 1].getStyleClass().add("playerTopJump4");
 					break;
 				case 4:
+					EnvironmentGUIPane.labels[position.getY() + 1][position.getX() - 1].getStyleClass().clear();
+					EnvironmentGUIPane.labels[position.getY() + 1][position.getX() - 1].getStyleClass().add("background");
 					EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().clear();
-					EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().add("background");
-					EnvironmentGUIPane.labels[position.getY() - 1][position.getX() - 1].getStyleClass().clear();
-					EnvironmentGUIPane.labels[position.getY() - 1][position.getX() - 1].getStyleClass().add("player");
+					EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().add("player");
+					break;
 				case 5:
 					EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().clear();
 					EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().add("playerTopJump4");
@@ -166,6 +167,7 @@ public class Player {
 					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().add("background");
 					EnvironmentGUIPane.labels[position.getY() - 1][position.getX() + 1].getStyleClass().clear();
 					EnvironmentGUIPane.labels[position.getY() - 1][position.getX() + 1].getStyleClass().add("player");
+					break;
 				case 5:
 					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().clear();
 					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().add("playerTopJump4");
@@ -260,20 +262,22 @@ public class Player {
 						break;
 						
 						case 5:
-//							if(EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().contains("background")){
-//								counter = -1;
-//								EnvironmentGUIPane.condition = false;
-//								Platform.runLater(new Runnable(){
-//									
-//									@Override
-//									public void run() {
-//										jumpTimer.cancel();
-//										jumpTimer = new Timer();
-//									}
-//									
-//								});
-//							return;
-////							} This must stay this way until I can fix jump bug
+							if(!EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().contains("background")){
+								counter = -1;
+								EnvironmentGUIPane.condition = false;
+								Platform.runLater(new Runnable(){
+									
+									@Override
+									public void run() {
+										jumpTimer.cancel();
+										jumpTimer = new Timer();
+										
+									}
+									
+								});
+							return;
+							} 
+							EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].setText("hi");
 						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
 						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("playerTopJump4");
 						EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().clear();
