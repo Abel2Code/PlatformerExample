@@ -277,7 +277,7 @@ public class Player {
 								});
 							return;
 							} 
-							EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].setText("hi");
+							
 						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
 						EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("playerTopJump4");
 						EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().clear();
@@ -313,7 +313,6 @@ public class Player {
 						EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().add("player");
 						position.setY(position.getY() + 1);
 						counter = -1;
-						falling = false;
 						// Call fall method or execute fall through case 5-8
 						
 						
@@ -324,6 +323,7 @@ public class Player {
 								jumpTimer.cancel();
 								jumpTimer = new Timer();
 								falling = false;
+								EnvironmentGUIPane.condition = false;
 							}
 							
 						});
