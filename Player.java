@@ -163,9 +163,6 @@ public class Player {
 					EnvironmentGUIPane.labels[position.getY() - 1][position.getX() + 1].getStyleClass().add("playerTopJump4");
 					break;
 				case 4:
-					System.out.println("4");
-					EnvironmentGUIPane.labels[position.getY() + 1][position.getX() + 1].getStyleClass().clear();
-					EnvironmentGUIPane.labels[position.getY() + 1][position.getX() + 1].getStyleClass().add("background");
 					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().clear();
 					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().add("player");
 					break;
