@@ -36,6 +36,17 @@ public class Player {
 			return;
 		}
 		if(position.getX() != 0 && EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().contains("background")){
+			Platform.runLater(new Runnable(){
+				
+				@Override
+				public void run() {
+					jumpTimer.cancel();
+					jumpTimer = new Timer();
+					falling = false;
+					EnvironmentGUIPane.condition = false;
+				}
+				
+			});
 			if((!(jumping || falling))|| position.getX() == 14){
 				EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
 				EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("background");
@@ -208,6 +219,7 @@ public class Player {
 					EnvironmentGUIPane.labels[position.getY() + 1][position.getX() + 1].getStyleClass().clear();
 					EnvironmentGUIPane.labels[position.getY() + 1][position.getX() + 1].getStyleClass().add("player");
 				}
+				canFall();
 			}
 			position.setX(position.getX() + 1);
 		} 
@@ -268,9 +280,10 @@ public class Player {
 						
 						jumping = false;
 						falling = true;
-						EnvironmentGUIPane.condition = true;
+						EnvironmentGUIPane.condition = false;
 						position.setY(position.getY() - 1);	
 						counter++;
+						canFall();
 						break;
 						
 //						case 5:
@@ -352,12 +365,18 @@ public class Player {
 	
 	private void canFall(){
 		if(EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().contains("background")){
-			EnvironmentGUIPane.condition = false;
+			
+			EnvironmentGUIPane.condition = true;
 			falling = true;
 			TimerTask startJump = new TimerTask() {
 				
 				@Override
 				public void run() {
+					// Why is this getting triggered!!!
+					if(EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().contains("background")){
+						counter = -3;
+					}
+					
 					switch(counter){						
 						case 5:
 							if(!EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().contains("background")){
@@ -413,8 +432,7 @@ public class Player {
 						position.setY(position.getY() + 1);
 						counter = -1;
 						// Call fall method or execute fall through case 5-8
-						
-						
+					case -3:
 						Platform.runLater(new Runnable(){
 							
 							@Override
@@ -426,6 +444,9 @@ public class Player {
 							}
 							
 						});
+						
+						
+					
 					}
 				}
 				
