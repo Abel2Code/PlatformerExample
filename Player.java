@@ -32,21 +32,12 @@ public class Player {
 	}
 	
 	public void moveLeft(){
+		cancelTimer();
 		if(position.getX() != 0 && jumping == true && EnvironmentGUIPane.labels[position.getY() - 1][position.getX() - 1].getStyleClass().contains("solid")){
 			return;
 		}
 		if(position.getX() != 0 && EnvironmentGUIPane.labels[position.getY()][position.getX() - 1].getStyleClass().contains("background")){
-			Platform.runLater(new Runnable(){
-				
-				@Override
-				public void run() {
-					jumpTimer.cancel();
-					jumpTimer = new Timer();
-					falling = false;
-					EnvironmentGUIPane.condition = false;
-				}
-				
-			});
+			cancelTimer();
 			if((!(jumping || falling))|| position.getX() == 14){
 				EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
 				EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("background");
@@ -142,6 +133,7 @@ public class Player {
 		if(position.getX() != 14 && jumping == true && (EnvironmentGUIPane.labels[position.getY() - 1][position.getX() + 1].getStyleClass().contains("solid"))){
 			return;
 		}
+		cancelTimer();
 		
 		if(position.getX() != 14 && EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().contains("background")){
 			if(!(jumping || falling)){
@@ -374,27 +366,14 @@ public class Player {
 				
 				@Override
 				public void run() {
-					// Why is this getting triggered!!!
 					System.out.println("Triggered");
-//					if(EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().contains("background")){
-//						counter = -3;
-//					}
 					
 					switch(counter){						
 						case 5:
 							if(!EnvironmentGUIPane.labels[position.getY() + 1][position.getX()].getStyleClass().contains("background")){
 								counter = -1;
 								EnvironmentGUIPane.condition = false;
-								Platform.runLater(new Runnable(){
-									
-									@Override
-									public void run() {
-										jumpTimer.cancel();
-										jumpTimer = new Timer();
-										falling = false;
-									}
-									
-								});
+								cancelTimer();
 							return;
 							} 
 							
@@ -436,18 +415,7 @@ public class Player {
 						counter = -1;
 						// Call fall method or execute fall through case 5-8
 					default:
-						Platform.runLater(new Runnable(){
-							
-							@Override
-							public void run() {
-								jumpTimer.cancel();
-								jumpTimer = new Timer();
-								falling = false;
-								EnvironmentGUIPane.condition = false;
-							}
-							
-						});
-						
+						cancelTimer();					
 						
 					
 					}
@@ -460,5 +428,19 @@ public class Player {
 		} else{
 			counter = -1;
 		}
+	}
+	
+	public void cancelTimer(){
+		Platform.runLater(new Runnable(){
+			
+			@Override
+			public void run() {
+				jumpTimer.cancel();
+				jumpTimer = new Timer();
+				falling = false;
+				EnvironmentGUIPane.condition = false;
+			}
+			
+		});
 	}
 }
