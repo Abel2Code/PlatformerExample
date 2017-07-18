@@ -64,12 +64,15 @@ public class MainMenu {
 						@Override
 						public void run() {
 							EnvironmentGUIPane pane = new EnvironmentGUIPane();
-							Main.scene.setRoot(pane);
 							pane.startLevel(Main.currentLevel);
-							mainMenuTimer.cancel();
+							Main.scene.setRoot(pane);
 						}
 						
 					});
+					
+					;
+					System.out.println("pane.startLevel");
+					mainMenuTimer.cancel();
 				}
 				
 			}

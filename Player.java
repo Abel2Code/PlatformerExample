@@ -7,7 +7,7 @@ import javafx.application.Platform;
 import javafx.scene.control.Label;
 
 /* Bugs:
- *  If solid below when falling, solid will be deleted 
+ *  
  */
 
 public class Player {
@@ -137,6 +137,7 @@ public class Player {
 		
 		if(position.getX() != 14 && EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().contains("background")){
 			if(!(jumping || falling)){
+				System.out.println("MovRigh");
 				EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
 				EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().add("background");
 				
@@ -424,7 +425,8 @@ public class Player {
 				
 			};	
 			
-			jumpTimer.schedule(startJump, 0, 80);
+			jumpTimer.schedule(startJump, 0, 800);
+		
 		} else{
 			counter = -1;
 		}
