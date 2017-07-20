@@ -69,9 +69,7 @@ public class MainMenu {
 						}
 						
 					});
-					
-					;
-					System.out.println("pane.startLevel");
+				
 					mainMenuTimer.cancel();
 				}
 				

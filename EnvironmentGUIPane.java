@@ -35,7 +35,6 @@ public class EnvironmentGUIPane extends GridPane{
 			public void handle(KeyEvent event) {
 				if(event.getCode() == KeyCode.RIGHT || event.getCode() == KeyCode.D){
 					player.moveRight();
-					System.out.println("Hit Right Key");
 				} else if(event.getCode() == KeyCode.LEFT || event.getCode() == KeyCode.A){
 					player.moveLeft();
 				} else if((event.getCode() == KeyCode.UP || event.getCode() == KeyCode.W) && condition == false){

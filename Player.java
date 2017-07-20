@@ -17,7 +17,7 @@ public class Player {
 	int timeFalling = 0;
 	private static Timer jumpTimer = new Timer();
 	private static int counter = -1;
-	
+	private static int timerLength = 300;
 	public Player(int x, int y){
 		position = new Coordinate(x, y);
 	}
@@ -133,7 +133,6 @@ public class Player {
 		if(position.getX() != 14 && jumping == true && (EnvironmentGUIPane.labels[position.getY() - 1][position.getX() + 1].getStyleClass().contains("solid"))){
 			return;
 		}
-		cancelTimer();
 		
 		if(position.getX() != 14 && EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().contains("background")){
 			if(!(jumping || falling)){
@@ -143,6 +142,7 @@ public class Player {
 				
 				EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().clear();
 				EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().add("player");
+				System.out.println("CALLING TESTTTT");
 				canFall();
 			} else{
 				EnvironmentGUIPane.labels[position.getY()][position.getX()].getStyleClass().clear();
@@ -157,6 +157,7 @@ public class Player {
 					EnvironmentGUIPane.labels[position.getY() - 1][position.getX() + 1].getStyleClass().add("playerTopJump1");
 					break;
 				case 1:
+					System.out.println("Breaks");
 					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().clear();
 					EnvironmentGUIPane.labels[position.getY()][position.getX() + 1].getStyleClass().add("playerBottomJump2");
 					EnvironmentGUIPane.labels[position.getY() - 1][position.getX() + 1].getStyleClass().clear();
@@ -354,7 +355,7 @@ public class Player {
 				
 			};	
 			
-			jumpTimer.schedule(startJump, 0, 80);
+			jumpTimer.schedule(startJump, 0, timerLength);
 		}
 	}
 	
@@ -367,7 +368,6 @@ public class Player {
 				
 				@Override
 				public void run() {
-					System.out.println("Triggered");
 					
 					switch(counter){						
 						case 5:
@@ -425,7 +425,7 @@ public class Player {
 				
 			};	
 			
-			jumpTimer.schedule(startJump, 0, 800);
+			jumpTimer.schedule(startJump, 0, timerLength);
 		
 		} else{
 			counter = -1;
